@@ -18,7 +18,7 @@ import DividerWithText from "../components/DividerWithText";
 import { Layout } from "../components/Layout";
 import { useAuth } from "../contexts/AuthContext";
 const register = () => {
-  const auth = useAuth();
+  const { register } = useAuth();
   const router = useRouter();
   const toast = useToast();
   const [email, setEmail] = useState("");
@@ -43,9 +43,8 @@ const register = () => {
               });
             }
             setIsSubmitting(true);
-            auth
-              .register(email, password)
-              .then(() => {
+            register(email, password)
+              .then((response: any) => {
                 toast({
                   description: "Success, Please Login",
                   status: "success",
@@ -55,7 +54,7 @@ const register = () => {
                 });
                 router.push("/login");
               })
-              .catch((error) => {
+              .catch((error: any) => {
                 toast({
                   description: error.message,
                   status: "error",

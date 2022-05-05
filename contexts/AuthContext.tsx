@@ -16,7 +16,7 @@ const AuthContext = createContext({
   login: () => Promise,
   logout: () => Promise,
   singInWithGoogle: () => Promise,
-  forgetPassword: () => Promise,
+  ForgetPassword: () => Promise,
 });
 
 export const useAuth = () => useContext(AuthContext);
@@ -43,7 +43,7 @@ export default function AuthContextProvider({ children }: any) {
     return signInWithPopup(auth, provider);
   }
 
-  function forgetPassword(email: any) {
+  function ForgetPassword(email: any) {
     return sendPasswordResetEmail(auth, email, {
       url: "http://localhost:3000/login",
     });
@@ -59,7 +59,7 @@ export default function AuthContextProvider({ children }: any) {
     login,
     logout,
     singInWithGoogle,
-    forgetPassword,
+    ForgetPassword,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
