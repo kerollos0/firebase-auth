@@ -22,10 +22,10 @@ const AuthContext = createContext({
 export const useAuth = () => useContext(AuthContext);
 
 export default function AuthContextProvider({ children }: any) {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState<any | null>(null);
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user: null) => {
-      return setCurrentUser(user);
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
     });
     return () => {
       unsubscribe();
