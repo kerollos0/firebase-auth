@@ -17,10 +17,10 @@ import DividerWithText from "../components/DividerWithText";
 import { Layout } from "../components/Layout";
 import { useAuth } from "../contexts/AuthContext";
 
-const forgetPassword = () => {
+const ForgetPasswordPage = () => {
   const router = useRouter();
   const toast = useToast();
-  const { forgetPassword } = useAuth();
+  const { ForgetPassword } = useAuth();
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -35,7 +35,7 @@ const forgetPassword = () => {
             e.preventDefault();
             // your forgot password logic here
             setIsSubmitting(true);
-            forgetPassword(email)
+            ForgetPassword(email)
               .then((res) =>
                 toast({
                   description: "Email Sent, check your email",
@@ -93,4 +93,4 @@ const forgetPassword = () => {
   );
 };
 
-export default forgetPassword;
+export default ForgetPasswordPage;

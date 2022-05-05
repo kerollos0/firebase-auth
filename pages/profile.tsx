@@ -5,7 +5,7 @@ import React, { useEffect } from "react";
 import { Layout } from "../components/Layout";
 import { useAuth } from "../contexts/AuthContext";
 
-const profile = () => {
+const Profile = () => {
   const { currentUser } = useAuth();
   const router = useRouter();
   useEffect(() => {
@@ -25,4 +25,4 @@ const profile = () => {
   );
 };
 
-export default profile;
+export default Profile;

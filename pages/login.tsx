@@ -20,9 +20,9 @@ import DividerWithText from "../components/DividerWithText";
 import { Layout } from "../components/Layout";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { useAuth } from "../contexts/AuthContext";
-const login = () => {
+const LoginPage = () => {
   const router = useRouter();
-  const { login, singInWithGoogle } = useAuth();
+  const { Login, SingInWithGoogle } = useAuth();
 
   const toast = useToast();
   const [email, setEmail] = useState("");
@@ -47,7 +47,7 @@ const login = () => {
               });
             }
             setIsSubmitting(true);
-            login(email, password)
+            Login(email, password)
               .then(() => {
                 toast({
                   description: "Welcome",
@@ -125,7 +125,7 @@ const login = () => {
           colorScheme="red"
           leftIcon={<AiOutlineGoogle />}
           onClick={() =>
-            singInWithGoogle()
+            SingInWithGoogle()
               .then((response) => router.push("/profile"))
               .catch((err) => console.log(err))
           }
@@ -137,4 +137,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default LoginPage;

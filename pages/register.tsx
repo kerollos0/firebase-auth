@@ -17,8 +17,8 @@ import Card from "../components/Card";
 import DividerWithText from "../components/DividerWithText";
 import { Layout } from "../components/Layout";
 import { useAuth } from "../contexts/AuthContext";
-const register = () => {
-  const { register } = useAuth();
+const RegisterPage = () => {
+  const { Register } = useAuth();
   const router = useRouter();
   const toast = useToast();
   const [email, setEmail] = useState("");
@@ -43,7 +43,7 @@ const register = () => {
               });
             }
             setIsSubmitting(true);
-            register(email, password)
+            Register(email, password)
               .then((response: any) => {
                 toast({
                   description: "Success, Please Login",
@@ -124,4 +124,4 @@ const register = () => {
   );
 };
 
-export default register;
+export default RegisterPage;

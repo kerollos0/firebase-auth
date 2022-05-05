@@ -12,7 +12,7 @@ import React, { useState } from "react";
 import Card from "../components/Card";
 import { Layout } from "../components/Layout";
 
-const resetPassword = () => {
+const ResetPassword = () => {
   return (
     <Layout>
       <Heading textAlign="center" my={12}>
@@ -40,4 +40,4 @@ const resetPassword = () => {
   );
 };
 
-export default resetPassword;
+export default ResetPassword;

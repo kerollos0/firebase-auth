@@ -12,10 +12,10 @@ import { auth } from "../utils/init-firbase";
 
 const AuthContext = createContext({
   currentUser: null,
-  register: () => Promise,
-  login: () => Promise,
-  logout: () => Promise,
-  singInWithGoogle: () => Promise,
+  Register: () => Promise,
+  Login: () => Promise,
+  Logout: () => Promise,
+  SingInWithGoogle: () => Promise,
   ForgetPassword: () => Promise,
 });
 
@@ -31,14 +31,14 @@ export default function AuthContextProvider({ children }: any) {
       unsubscribe();
     };
   }, []);
-  function register(email: any, password: any) {
+  function Register(email: any, password: any) {
     return createUserWithEmailAndPassword(auth, email, password);
   }
-  function login(email: any, password: any) {
+  function Login(email: any, password: any) {
     return signInWithEmailAndPassword(auth, email, password);
   }
 
-  function singInWithGoogle() {
+  function SingInWithGoogle() {
     const provider = new GoogleAuthProvider();
     return signInWithPopup(auth, provider);
   }
@@ -49,16 +49,16 @@ export default function AuthContextProvider({ children }: any) {
     });
   }
 
-  function logout() {
+  function Logout() {
     return signOut(auth);
   }
 
   const value = {
     currentUser,
-    register,
-    login,
-    logout,
-    singInWithGoogle,
+    Register,
+    Login,
+    Logout,
+    SingInWithGoogle,
     ForgetPassword,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

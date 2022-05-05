@@ -17,7 +17,7 @@ import { HiMenu } from "react-icons/hi";
 import { useAuth } from "../contexts/AuthContext";
 export function Navbar() {
   const { toggleColorMode } = useColorMode();
-  const { currentUser, logout } = useAuth();
+  const { currentUser, Logout } = useAuth();
 
   return (
     <Box
@@ -50,7 +50,7 @@ export function Navbar() {
               onClick={(e: any) => {
                 e.preventDefault();
                 // handle logout
-                logout();
+                Logout();
               }}
             />
           </>
