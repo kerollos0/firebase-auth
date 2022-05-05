@@ -44,7 +44,7 @@ const register = () => {
             }
             setIsSubmitting(true);
             register(email, password)
-              .then((response: any) => {
+              .then(() => {
                 toast({
                   description: "Success, Please Login",
                   status: "success",
@@ -54,7 +54,7 @@ const register = () => {
                 });
                 router.push("/login");
               })
-              .catch((error: any) => {
+              .catch((error) => {
                 toast({
                   description: error.message,
                   status: "error",

@@ -36,7 +36,7 @@ const forgetPassword = () => {
             // your forgot password logic here
             setIsSubmitting(true);
             forgetPassword(email)
-              .then((res) =>
+              .then(() =>
                 toast({
                   description: "Email Sent, check your email",
                   status: "success",

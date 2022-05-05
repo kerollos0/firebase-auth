@@ -48,7 +48,7 @@ const login = () => {
             }
             setIsSubmitting(true);
             login(email, password)
-              .then((response: any) => {
+              .then(() => {
                 toast({
                   description: "Welcome",
                   status: "success",
@@ -58,7 +58,7 @@ const login = () => {
                 });
                 router.push("/profile");
               })
-              .catch((error: any) => {
+              .catch((error) => {
                 toast({
                   description: error.message,
                   status: "error",
