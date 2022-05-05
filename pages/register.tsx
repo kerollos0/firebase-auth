@@ -18,7 +18,7 @@ import DividerWithText from "../components/DividerWithText";
 import { Layout } from "../components/Layout";
 import { useAuth } from "../contexts/AuthContext";
 const register = () => {
-  const { register } = useAuth();
+  const auth = useAuth();
   const router = useRouter();
   const toast = useToast();
   const [email, setEmail] = useState("");
@@ -43,7 +43,8 @@ const register = () => {
               });
             }
             setIsSubmitting(true);
-            register(email, password)
+            auth
+              .register(email, password)
               .then(() => {
                 toast({
                   description: "Success, Please Login",

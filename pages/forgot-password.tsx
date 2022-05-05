@@ -20,7 +20,7 @@ import { useAuth } from "../contexts/AuthContext";
 const forgetPassword = () => {
   const router = useRouter();
   const toast = useToast();
-  const { forgetPassword } = useAuth();
+  const auth = useAuth();
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -35,7 +35,8 @@ const forgetPassword = () => {
             e.preventDefault();
             // your forgot password logic here
             setIsSubmitting(true);
-            forgetPassword(email)
+            auth
+              .forgetPassword(email)
               .then(() =>
                 toast({
                   description: "Email Sent, check your email",
